@@ -1,6 +1,7 @@
 #!/usr/bin/env roseus
 
 (require :fetch-interface "package://fetcheus/fetch-interface.l")
+(ros::roseus-add-srvs "std_srvs")
 
 (defun fetch-rotate-arm ()
   (setq default (send *ri* :state :potentio-vector))
@@ -30,5 +31,12 @@
   ;; (send ac :send-goal goal) ;; robot will start to move
   (send *ri* :wait-interpolation))
 
+(defun callback (req)
+    (fetch-rotate-arm)
+    (instance std_srvs::EmptyResponse :init))
 
-
+(ros::roseus "partial_rotate")
+(fetch-init)
+(ros::advertise-service "~partial_rotate" std_srvs::Empty #'callback)
+(do-until-key
+ (ros::spin-once))
