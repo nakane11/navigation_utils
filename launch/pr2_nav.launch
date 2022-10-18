@@ -1,0 +1,15 @@
+<launch>
+
+  <node name="restore_padding" output="screen"
+        pkg="expand_padding" type="restore_padding.py" >
+    <rosparam subst_value="true">
+      padding_name: /move_base_node/global_costmap/footprint_padding
+      global_name: /move_base_node/global_costmap
+    </rosparam>
+  </node>
+
+
+  <node pkg="rviz" type="rviz" name="$(anon jsk_startup_rviz)"
+        args="-d $(find navigation_utils)/config/pr2_navigation.rviz" />
+  
+</launch>
