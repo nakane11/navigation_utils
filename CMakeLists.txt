@@ -140,6 +140,7 @@ include_directories(
 # add_executable(${PROJECT_NAME}_node src/navigation_utils_node.cpp)
 add_executable(tf_transposer src/tf_transposer.cpp)
 add_executable(update_padding src/update_padding.cpp)
+add_executable(compute_y_distance src/compute_y_distance.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -157,6 +158,7 @@ add_executable(update_padding src/update_padding.cpp)
 # )
 target_link_libraries(tf_transposer ${catkin_LIBRARIES})
 target_link_libraries(update_padding ${catkin_LIBRARIES})
+target_link_libraries(compute_y_distance ${catkin_LIBRARIES})
 
 #############
 ## Install ##
