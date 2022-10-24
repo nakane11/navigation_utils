@@ -14,6 +14,7 @@ find_package(catkin REQUIRED COMPONENTS
   roseus
   rospy
   std_msgs
+  pcl_ros
 )
 
 ## System dependencies are found with CMake's conventions
@@ -138,6 +139,7 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/navigation_utils_node.cpp)
 add_executable(tf_transposer src/tf_transposer.cpp)
+add_executable(update_padding src/update_padding.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -154,6 +156,7 @@ add_executable(tf_transposer src/tf_transposer.cpp)
 #   ${catkin_LIBRARIES}
 # )
 target_link_libraries(tf_transposer ${catkin_LIBRARIES})
+target_link_libraries(update_padding ${catkin_LIBRARIES})
 
 #############
 ## Install ##
