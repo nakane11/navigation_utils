@@ -139,6 +139,8 @@ include_directories(
 ## The recommended prefix ensures that target names across packages don't collide
 # add_executable(${PROJECT_NAME}_node src/navigation_utils_node.cpp)
 add_executable(tf_transposer src/tf_transposer.cpp)
+add_executable(tf_transposer_raw src/tf_transposer_raw.cpp)
+add_executable(tf_base_transposer src/tf_base_transposer.cpp)
 add_executable(update_padding src/update_padding.cpp)
 add_executable(compute_y_distance src/compute_y_distance.cpp)
 
@@ -157,6 +159,8 @@ add_executable(compute_y_distance src/compute_y_distance.cpp)
 #   ${catkin_LIBRARIES}
 # )
 target_link_libraries(tf_transposer ${catkin_LIBRARIES})
+target_link_libraries(tf_transposer_raw ${catkin_LIBRARIES})
+target_link_libraries(tf_base_transposer ${catkin_LIBRARIES})
 target_link_libraries(update_padding ${catkin_LIBRARIES})
 target_link_libraries(compute_y_distance ${catkin_LIBRARIES})
 

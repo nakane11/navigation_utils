@@ -25,9 +25,14 @@
     </rosparam>
   </node>
   
-  <node pkg="navigation_utils" type="tf_transposer"
+  <!-- <node pkg="navigation_utils" type="tf_transposer" -->
+  <!--       name="tf_transposer" > -->
+  <!--   <remap from="~input/pose" to="/person_pose_array_to_pose_stamped/output" /> -->
+  <!-- </node> -->
+
+  <node pkg="navigation_utils" type="tf_base_transposer"
         name="tf_transposer" >
     <remap from="~input/pose" to="/person_pose_array_to_pose_stamped/output" />
   </node>
-  
+
 </launch>
