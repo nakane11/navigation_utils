@@ -25,7 +25,7 @@ public:
                             tf::Vector3(
                                         base_to_target.getOrigin().getX()/2.0,
                                         base_to_target.getOrigin().getY()/2.0,
-                                        base_to_target.getOrigin().getZ()/2.0
+                                        0.0
                                         )
                             );
     tfb_.sendTransform(
@@ -39,8 +39,8 @@ public:
   }
 
   TfTransposer(): nh_(), pnh_("~"), tfl_(nh_) {
-    pnh_.param("base_frame_id", base_frame_id, std::string("base_link"));
-    pnh_.param("child_frame_id", child_frame_id, std::string("base_link_offset"));
+    pnh_.param("base_frame_id", base_frame_id, std::string("base_footprint"));
+    pnh_.param("child_frame_id", child_frame_id, std::string("base_converted"));
     sub_ = pnh_.subscribe("input/pose", 1, &TfTransposer::cb, this);
   }
 
