@@ -9,6 +9,11 @@
     </rosparam>
   </node>
 
+  <node name="compute_y_distance" output="screen"
+        pkg="navigation_utils" type="compute_y_distance" >
+    <remap from="~input" to="/kinect_head/depth_registered/points" />
+  </node>
+
   <node if="$(arg gui)" pkg="rviz" type="rviz" name="$(anon jsk_startup_rviz)"
         args="-d $(find navigation_utils)/config/pr2_navigation.rviz" />
   
